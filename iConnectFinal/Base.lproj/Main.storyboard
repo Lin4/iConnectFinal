@@ -46,7 +46,10 @@
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="8s1-BV-ht2"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OiU-PL-aje" customClass="FancyTextFields" customModule="iConnectFinal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="228" height="40"/>
@@ -55,7 +58,10 @@
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="x9F-fi-HmU"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Na-OB-icQ" customClass="FancyButton" customModule="iConnectFinal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="100" width="228" height="45"/>
@@ -67,6 +73,9 @@
                                         <state key="normal" title="Sign in">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signInBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bg7-Gh-ItV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -183,6 +192,10 @@
                             <constraint firstItem="wt8-Vw-Fhg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="yjG-jw-9Cq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtEmail" destination="uPM-LH-TeE" id="E1H-ya-hMW"/>
+                        <outlet property="txtPassword" destination="OiU-PL-aje" id="ETl-XR-DBO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
