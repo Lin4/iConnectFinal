@@ -10,21 +10,23 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
+
 class SignInVC: UIViewController {
     @IBOutlet weak var txtEmail: FancyTextFields!
     @IBOutlet weak var txtPassword: FancyTextFields!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: "KEY_UID"){
+            performSegue(withIdentifier: "gotoFeed", sender: nil)
+        }
     }
 
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func facebookButtonTapped(_ sender: Any) {
         
         let facebookLogin = FBSDKLoginManager()
@@ -48,9 +50,11 @@ class SignInVC: UIViewController {
         Auth.auth().signIn(with: credentials, completion: { (user, Error)in
             if Error != nil {
                 print ("LIN: Unable to Authenticate with firwbase- \(String(describing: Error))")
-    
             }else {
                 print ("LIN: Successfully Authenticate with firebase")
+                if let user = user{
+                self.completeSignIn(id: user.uid)
+                }
             }
         })
     }
@@ -62,12 +66,14 @@ class SignInVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: pwd) { (user, error) in
                             if error == nil {
                     print("Lin: EmailUser authenticated with Firebase")
+                        self.completeSignIn(id: (user?.uid)!)
                 } else {
                     Auth.auth().createUser(withEmail: email, password: pwd) { (user, error) in
                         if error != nil {
                             print("Lin: unable to EmailUser authenticated with Firebase")
                         } else {
                             print("Lin: Authentication Success" )
+                            self.completeSignIn(id: (user?.uid)!)
                         }
                     }
                 }
@@ -75,6 +81,13 @@ class SignInVC: UIViewController {
         }
         
     }
+    func completeSignIn(id: String) {
+           //let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+            let keychainResult = KeychainWrapper.standard.set("Some String", forKey: "KEY_UID")
+            print("Lin : Data saved to key chain \(keychainResult)")
+            performSegue(withIdentifier: "gotoFeed", sender: nil)
+    }
+
 }
 
 extension UIViewController {

@@ -19,6 +19,7 @@
 		086DFEDD1EDBBDFC0001644C /* FancyTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DFEDC1EDBBDFC0001644C /* FancyTextFields.swift */; };
 		086DFEDF1EDBC0A30001644C /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DFEDE1EDBC0A30001644C /* FancyButton.swift */; };
 		086DFEE11EDBD12B0001644C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086DFEE01EDBD12B0001644C /* FBSDKLoginKit.framework */; };
+		08B2DA6A1EEEDAF800A1239D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B2DA691EEEDAF800A1239D /* FeedVC.swift */; };
 		4842D35729894D1B94CB043B /* Pods_iConnectFinal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A00F6FC5B0A14EB8C6F00D /* Pods_iConnectFinal.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		086DFEDC1EDBBDFC0001644C /* FancyTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyTextFields.swift; sourceTree = "<group>"; };
 		086DFEDE1EDBC0A30001644C /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
 		086DFEE01EDBD12B0001644C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Release-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		08B2DA691EEEDAF800A1239D /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		08B2DA6B1EEF0FEC00A1239D /* iConnectFinal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iConnectFinal.entitlements; sourceTree = "<group>"; };
 		39DF5CCBB27D3BB888F7D0DD /* Pods-iConnectFinal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnectFinal.release.xcconfig"; path = "Pods/Target Support Files/Pods-iConnectFinal/Pods-iConnectFinal.release.xcconfig"; sourceTree = "<group>"; };
 		510A8B5EC4299ED36BCFDAA9 /* Pods-iConnectFinal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnectFinal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iConnectFinal/Pods-iConnectFinal.debug.xcconfig"; sourceTree = "<group>"; };
 		A6A00F6FC5B0A14EB8C6F00D /* Pods_iConnectFinal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConnectFinal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +79,7 @@
 		082656B31ED9FB9A00B2B234 /* iConnectFinal */ = {
 			isa = PBXGroup;
 			children = (
+				08B2DA6B1EEF0FEC00A1239D /* iConnectFinal.entitlements */,
 				086DFED71EDBB7030001644C /* Util */,
 				082656CA1EDA15FD00B2B234 /* Controller */,
 				082656C91EDA15F500B2B234 /* View */,
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				082656B61ED9FB9A00B2B234 /* SignInVC.swift */,
+				08B2DA691EEEDAF800A1239D /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -179,6 +184,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = HV597UH4PF;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -268,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				082656B71ED9FB9A00B2B234 /* SignInVC.swift in Sources */,
+				08B2DA6A1EEEDAF800A1239D /* FeedVC.swift in Sources */,
 				086DFEDB1EDBBB1B0001644C /* FacebookButton.swift in Sources */,
 				082656B51ED9FB9A00B2B234 /* AppDelegate.swift in Sources */,
 				086DFEDF1EDBC0A30001644C /* FancyButton.swift in Sources */,
@@ -397,6 +408,7 @@
 			baseConfigurationReference = 510A8B5EC4299ED36BCFDAA9 /* Pods-iConnectFinal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iConnectFinal/iConnectFinal.entitlements;
 				DEVELOPMENT_TEAM = HV597UH4PF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,6 +427,7 @@
 			baseConfigurationReference = 39DF5CCBB27D3BB888F7D0DD /* Pods-iConnectFinal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iConnectFinal/iConnectFinal.entitlements;
 				DEVELOPMENT_TEAM = HV597UH4PF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
