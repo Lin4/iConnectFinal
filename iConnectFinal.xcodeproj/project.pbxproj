@@ -14,6 +14,7 @@
 		082656BF1ED9FB9A00B2B234 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082656BD1ED9FB9A00B2B234 /* LaunchScreen.storyboard */; };
 		082656C71ED9FC6B00B2B234 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082656C61ED9FC6B00B2B234 /* GoogleService-Info.plist */; };
 		082656CC1EDB9CD900B2B234 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082656CB1EDB9CD900B2B234 /* FancyView.swift */; };
+		082B3BBB1EF0E03600AE7CEA /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B3BBA1EF0E03600AE7CEA /* CircleView.swift */; };
 		086DFED91EDBB7250001644C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DFED81EDBB7250001644C /* Constant.swift */; };
 		086DFEDB1EDBBB1B0001644C /* FacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DFEDA1EDBBB1B0001644C /* FacebookButton.swift */; };
 		086DFEDD1EDBBDFC0001644C /* FancyTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DFEDC1EDBBDFC0001644C /* FancyTextFields.swift */; };
@@ -33,6 +34,7 @@
 		082656C01ED9FB9A00B2B234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		082656C61ED9FC6B00B2B234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		082656CB1EDB9CD900B2B234 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
+		082B3BBA1EF0E03600AE7CEA /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		086DFED81EDBB7250001644C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		086DFEDA1EDBBB1B0001644C /* FacebookButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookButton.swift; sourceTree = "<group>"; };
 		086DFEDC1EDBBDFC0001644C /* FancyTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyTextFields.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				086DFEDA1EDBBB1B0001644C /* FacebookButton.swift */,
 				086DFEDC1EDBBDFC0001644C /* FancyTextFields.swift */,
 				086DFEDE1EDBC0A30001644C /* FancyButton.swift */,
+				082B3BBA1EF0E03600AE7CEA /* CircleView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082B3BBB1EF0E03600AE7CEA /* CircleView.swift in Sources */,
 				082656B71ED9FB9A00B2B234 /* SignInVC.swift in Sources */,
 				08B2DA6A1EEEDAF800A1239D /* FeedVC.swift in Sources */,
 				086DFEDB1EDBBB1B0001644C /* FacebookButton.swift in Sources */,
