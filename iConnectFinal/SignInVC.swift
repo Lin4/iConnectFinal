@@ -53,7 +53,8 @@ class SignInVC: UIViewController {
             }else {
                 print ("LIN: Successfully Authenticate with firebase")
                 if let user = user{
-                self.completeSignIn(id: user.uid)
+                    let userData = ["provider": credentials.provider]
+                    self.completeSignIn(id: user.uid, userData: userData)
                 }
             }
         })
@@ -66,14 +67,22 @@ class SignInVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: pwd) { (user, error) in
                             if error == nil {
                     print("Lin: EmailUser authenticated with Firebase")
-                        self.completeSignIn(id: (user?.uid)!)
+                                if let user = user{
+                                    let userData = ["provider": user.providerID]
+                                    self.completeSignIn(id: (user.uid), userData: userData)
+                                }
+
                 } else {
                     Auth.auth().createUser(withEmail: email, password: pwd) { (user, error) in
                         if error != nil {
                             print("Lin: unable to EmailUser authenticated with Firebase")
                         } else {
                             print("Lin: Authentication Success" )
-                            self.completeSignIn(id: (user?.uid)!)
+                            if let user = user{
+                            let userData = ["provider": user.providerID]
+                            self.completeSignIn(id: (user.uid), userData: userData)
+                            }
+                        
                         }
                     }
                 }
@@ -81,7 +90,8 @@ class SignInVC: UIViewController {
         }
         
     }
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+            DataServices.ds.createFirebaseDBUser(uid: id, userDate: userData)
            //let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
             let keychainResult = KeychainWrapper.standard.set("Some String", forKey: "KEY_UID")
             print("Lin : Data saved to key chain \(keychainResult)")
