@@ -11,7 +11,12 @@ import Firebase
 import SwiftKeychainWrapper
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
+    
+     var posts = [Post]()
+     var imagePicker: UIImagePickerController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,19 +24,37 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         
         DataServices.ds.REF_POST.observe(.value, with: { (snapshot) in
-           print(snapshot.value!)
+            self.posts = []
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDict)
+                        self.posts.append(post)
+                        
+                        
+                    }
+                }
+            }
+            self.tableView.reloadData()
         })
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) ->Int{
-        return 3
+    
+        return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "postCell")as! PostCell
+        let post = posts[indexPath.row]
+        print("LINN: \(post.caption)")
+        
+        return (tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCell)
     }
     
     @IBAction func signOutTapped(_ sender: Any) {
